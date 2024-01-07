@@ -8,7 +8,7 @@ type CheckboxProps = {
   onChange?: (value: boolean) => void;
 };
 
-export const Checkbox: FC<CheckboxProps> = ({ checked = false, onChange }) => {
+export const Checkbox: FC<CheckboxProps> = ({ checked, onChange }) => {
   const [checkedState, setCheckedState] = useState<boolean>(checked);
 
   const handleClick = useCallback(() => {
@@ -24,14 +24,14 @@ export const Checkbox: FC<CheckboxProps> = ({ checked = false, onChange }) => {
       <div className={`checkbox ${checkedState ? "checked" : "unchecked"}`}>
         {checkedState ? (
           <Image
-            src="/images/unchecked.svg"
+            src="/images/checked.svg"
             alt="checked"
             width="30"
             height="30"
           />
         ) : (
           <Image
-            src="/images/checked.svg"
+            src="/images/unchecked.svg"
             alt="unchecked"
             width="30"
             height="30"

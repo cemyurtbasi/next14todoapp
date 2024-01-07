@@ -6,16 +6,16 @@ export const DELETE = async(req: Request) => {
     try {
         const todo = getTodoById(id);
         if(!todo)
-            return NextResponse.json({message: "Error"}, {
+            return NextResponse.json({ok: false}, {
                 status: 404
             })
 
         deleteTodo(id);
-        return NextResponse.json({message: "Ok"}, {
+        return NextResponse.json({ok: true}, {
             status: 201
         })
     } catch (err) {
-        return NextResponse.json({message: "Error" , err}, {
+        return NextResponse.json({ok: false , err}, {
             status: 500
         })
     }
@@ -27,16 +27,16 @@ export const PUT = async(req: Request) => {
     try {
         const todo = getTodoById(id);
         if(!todo)
-            return NextResponse.json({message: "Error"}, {
+            return NextResponse.json({ok: false}, {
                 status: 404
             })
             
         const updatedTodo = updateTodo(id, checked);
-        return NextResponse.json({message: "Ok", todo: updatedTodo}, {
+        return NextResponse.json({ok: true, todo: updatedTodo}, {
             status: 201
         })
     } catch (err) {
-        return NextResponse.json({message: "Error" , err}, {
+        return NextResponse.json({ok: false , err}, {
             status: 500
         })
     }

@@ -1,8 +1,13 @@
 import { AddTodo } from "@/components/AddTodo.tsx";
 import { TodoList } from "@/components/TodoList";
+import { serviceGetAllTodos } from "@/lib/Service/todos";
+// import { getAllTodos } from "@/lib/Service/todos";
 import React, { FC } from "react";
 
-export const HomePageTodoList: FC = () => {
+export const HomePageTodoList: FC = async () => {
+  // Serverside rendering için ilk data çekilir
+  const todoList = await serviceGetAllTodos();
+
   return (
     <section>
       <div className="div">
@@ -13,7 +18,7 @@ export const HomePageTodoList: FC = () => {
         </div>
 
         <div className="div">
-          <TodoList />
+          <TodoList todoList={todoList.todos} />
         </div>
       </div>
     </section>

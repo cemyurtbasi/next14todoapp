@@ -3,21 +3,26 @@
 import React, { FC, useState, useCallback } from "react";
 import { Input } from "../formElements/Input";
 import { Button } from "../formElements/Button";
+import { serviceAddTodo } from "@/lib/Service/todos";
+import { useDispatch } from "react-redux";
+import { addTodo } from "@/lib/Redux/Features/todos/todosSlice";
 
 export const AddTodo: FC = () => {
   const [taskName, setTaskName] = useState<string>("");
+  const dispatch = useDispatch();
 
   const handleChange = useCallback((value: string) => {
     setTaskName(value);
   }, []);
 
-  const onAddTodo = () => {
-    console.log(taskName);
+  const onAddTodo = useCallback(() => {
+    serviceAddTodo(taskName).then((res) => {
+      if (!res.ok) return;
 
-    //API'ye git ekle
-    //Geri gel setTaskName sıfırla
-    //Todolist'i yeniden çek
-  };
+      dispatch(addTodo(res.todo));
+      setTaskName("");
+    });
+  }, [taskName]);
 
   return (
     <div>

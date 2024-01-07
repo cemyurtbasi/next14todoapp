@@ -1,21 +1,21 @@
 import React, { FC, MouseEventHandler, memo } from "react";
 
 type ButtonProps = {
-  text: string;
+  text?: string;
   loadingActive?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   children?: React.ReactNode;
 };
 
 export const Button: FC<ButtonProps> = ({
-  text = "Button",
+  text,
   loadingActive = false,
   onClick,
   //İcon vb custom elementler için
   children,
 }) => {
   return (
-    <div className="button">
+    <div className={"button"}>
       <button onClick={onClick} disabled={loadingActive} type="button">
         {text}
         {children}
