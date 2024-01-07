@@ -11,6 +11,13 @@ export const getTodos = () => {
     return todos
 }
 
+export const getTodoById = (id: string) => {
+    const todo = todos.find((todo) => todo.id === id);
+    if(!todo) throw new Error("No todo found");
+
+    return todo;
+}
+
 export const addTodo = (todo: Todo) => {
     todos.push(todo);
 }
@@ -25,4 +32,5 @@ export const updateTodo = (id: string, checked: boolean) => {
     if(!todo) throw new Error("No todo found");
     
     todo.completed = checked
+    return todo;
 }
