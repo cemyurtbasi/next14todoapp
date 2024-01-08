@@ -5,8 +5,9 @@ import variables from "./homePageTodoList.module.scss";
 
 import React, { FC } from "react";
 
+//Sayfaların ana sectionlarının bulunduğu nokta burası.
+
 export const HomePageTodoList: FC = async () => {
-  // Serverside rendering için ilk data çekilir
   const todoList = await serviceGetAllTodos();
 
   return (
