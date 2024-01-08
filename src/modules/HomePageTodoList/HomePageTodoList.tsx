@@ -1,7 +1,8 @@
-import { AddTodo } from "@/components/AddTodo.tsx";
+import { AddTodo } from "@/components/AddTodo";
 import { TodoList } from "@/components/TodoList";
 import { serviceGetAllTodos } from "@/lib/Service/todos";
-// import { getAllTodos } from "@/lib/Service/todos";
+import variables from "./homePageTodoList.module.scss";
+
 import React, { FC } from "react";
 
 export const HomePageTodoList: FC = async () => {
@@ -9,18 +10,12 @@ export const HomePageTodoList: FC = async () => {
   const todoList = await serviceGetAllTodos();
 
   return (
-    <section>
-      <div className="div">
-        <h1>ToDo List</h1>
+    <section className={variables.homePageTodoList}>
+      <h1 className={variables.title}>ToDo List</h1>
 
-        <div className="div">
-          <AddTodo />
-        </div>
+      <AddTodo />
 
-        <div className="div">
-          <TodoList todoList={todoList.todos} />
-        </div>
-      </div>
+      <TodoList todoList={todoList.todos} />
     </section>
   );
 };

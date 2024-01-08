@@ -1,0 +1,26 @@
+.todoList {
+  border-radius: 5px;
+  border: solid 1px gray;
+}
+
+.todoListItem {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+
+  &:not(:last-child) {
+    border-bottom: solid 1px gray;
+  }
+
+  .text {
+    margin: 0 15px;
+    line-height: 1.5;
+    &.checked {
+      text-decoration: line-through;
+    }
+  }
+
+  .button {
+    margin-left: auto;
+  }
+}

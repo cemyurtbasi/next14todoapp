@@ -1,0 +1,36 @@
+@import "../../styles/variables.module.scss";
+@import "../../styles/media.module.scss";
+
+.addTodo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+
+  @include tablet {
+    padding: 15px 15px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    padding: 15px 0;
+  }
+
+  .input {
+    margin-right: 50px;
+
+    @include mobile {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  .addButton {
+    @include mobile {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+}

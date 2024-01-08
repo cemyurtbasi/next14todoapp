@@ -21,23 +21,16 @@ export const Checkbox: FC<CheckboxProps> = ({ checked, onChange }) => {
 
   return (
     <div onClick={handleClick}>
-      <div className={`checkbox ${checkedState ? "checked" : "unchecked"}`}>
-        {checkedState ? (
-          <Image
-            src="/images/checked.svg"
-            alt="checked"
-            width="30"
-            height="30"
-          />
-        ) : (
-          <Image
-            src="/images/unchecked.svg"
-            alt="unchecked"
-            width="30"
-            height="30"
-          />
-        )}
-      </div>
+      {checkedState ? (
+        <Image src="/images/checked.svg" alt="checked" width="30" height="30" />
+      ) : (
+        <Image
+          src="/images/unchecked.svg"
+          alt="unchecked"
+          width="30"
+          height="30"
+        />
+      )}
     </div>
   );
 };

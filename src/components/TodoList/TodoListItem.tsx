@@ -8,10 +8,14 @@ import {
   serviceRemoveTodo,
   serviceUpdateTodo,
 } from "@/lib/Service/todos";
-import { Button } from "../formElements/Button";
+import { Button, ButtonTypes } from "../formElements/Button";
 
 import { useDispatch } from "react-redux";
 import { setTodoList, removeTodo } from "@/lib/Redux/Features/todos/todosSlice";
+import Image from "next/image";
+
+import variables from "./todoList.module.scss";
+import { cx } from "@/shared/utlis/concatClasses";
 
 export type TodoListProps = {
   todo: Todo;
@@ -42,12 +46,25 @@ export const TodoListItem: FC<TodoListProps> = ({
   }, [id]);
 
   return (
-    <div>
+    <div className={variables.todoListItem}>
       <Checkbox checked={completed} onChange={onChangeControl} />
 
-      <span>{text}</span>
+      <span className={cx(variables.text, completed && variables.checked)}>
+        {text}
+      </span>
 
-      <Button onClick={onDeleteControl}>ÇÖP</Button>
+      <Button
+        onClick={onDeleteControl}
+        customClass={variables.button}
+        type={ButtonTypes.secondary}
+      >
+        <Image
+          src="/images/trash-icon.svg"
+          alt="unchecked"
+          width="20"
+          height="20"
+        />
+      </Button>
     </div>
   );
 };

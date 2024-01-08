@@ -8,12 +8,12 @@ export type Todo = {
 let todos: Todo[] = [{
     id: "1",
     completed: false,
-    text: "1",
+    text: "Todo List item for first time from server",
 }, 
 {
     id: "2",
     completed: false,
-    text: "2",
+    text: "Todo List item for second time from server",
 }];
 
 export const getTodos = () => {

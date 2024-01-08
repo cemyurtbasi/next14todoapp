@@ -1,0 +1,40 @@
+@import "../../../styles/variables.module.scss";
+@import "../../../styles/media.module.scss";
+
+.buttonContainer {
+  position: relative;
+  display: flex;
+
+  .button {
+    cursor: pointer;
+    border: none;
+    background-color: $button-success;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 100%;
+
+    &.primary {
+      background-color: $button-primary;
+      color: $fontColor-white;
+    }
+    &.secondary {
+      background-color: $button-secondary;
+      color: $fontColor-secondary;
+    }
+  }
+
+  .loading {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+    background: blue;
+    width: 100%;
+    height: 100%;
+  }
+}
